@@ -1,34 +1,23 @@
-### Commonly whitelisted domains for Pi-Hole.
+### Whitelisted domains for Pi-Hole by Freekers
 
-These domains are borrowed from various sources including reddit, GitHub and other sources.
-You can request additional domains via <a href="https://github.com/anudeepND/whitelist/issues">Issues</a> tab.
+This repository is meant to be used in conjunction with the original repository by anudeepND.
+You can request additional domains via the <a href="https://github.com/Freeekers/whitelist/issues">Issues</a> tab or by emailing me at pihole [at] freek [.] ws
 
 #### whitelist.txt
 [Pi-hole](https://pi-hole.net) users can quickly add these sites to your whitelist.txt by:
 
-• `git clone https://github.com/anudeepND/whitelist.git`   
+• `git clone https://github.com/Freekers/whitelist.git`   
 • `cd whitelist/scripts`   
 • `sudo chmod +x whitelist.sh`    
 • `sudo ./whitelist.sh`     
 
-#### referral-sites.txt
-Some deals sites like Slickdeals and Fatwallet needs a few sites (most of  them are ads) to be whitelisted to work properly, you can use `referral-sites.txt`file for this.    
-(`whitelist.txt` is recommended for every user as it doesn't contain any bad domains, if you use specific services like Fatwallet or Slickdeals etc. you should use `referral-sites.txt`)
- 
-To add them quickly to whitelist: 
-
-• `git clone https://github.com/anudeepND/whitelist.git`   
-• `cd whitelist/scripts`   
-• `sudo chmod +x referral.sh`    
-• `sudo ./referral.sh`   
-  
-####   optional-list.txt
-This file contain domains that are needed to be whitelisted depending on the service you use. (It may include analytics sites!)
+### No Raspberry Pi? Try my Free Public Pi-holes!
+For more information, check out https://freek.ws/public-pi-hole/
 
 
-##### How do I determine an ad domain?
+### How do I determine an ad domain?
 
-##### a). DNSthingy Assistant
+#### a). DNSthingy Assistant
 
 <a href="https://chrome.google.com/webstore/detail/dnsthingy-assistant/fdmpekabnlekabjlimjkfmdjajnddgpc">This browser extension</a> will list all of the domains that are queried when a web page is loaded. You can often look at the list of domains and cherry pick the ones that appear to be ad-serving domains.
 
@@ -37,8 +26,6 @@ This file contain domains that are needed to be whitelisted depending on the ser
  
  
  
-##### b). Using inbuilt Developer tool
+#### b). Using inbuilt Developer tool
 For Chrome ctrl+shift+I will land you in Developer tools menu.
 ![Alt text](http://i.imgur.com/44CHRLV.png)
-
-
