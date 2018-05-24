@@ -36,3 +36,4 @@ keystone.mwbsys.com
 dl.dropbox.com
 api.ipify.org
 bleacherreport.com
+www.howtogeek.com
