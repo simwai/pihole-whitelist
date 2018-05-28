@@ -37,3 +37,4 @@ dl.dropbox.com
 api.ipify.org
 bleacherreport.com
 www.howtogeek.com
+warez-bb.org
