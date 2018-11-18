@@ -7,7 +7,7 @@
 TICK="[\e[32m ✔ \e[0m]"
 
 
-echo -e " \e[1m This script will download and add domains from both repos your whitelist \e[0m"
+echo -e " \e[1m This script will download and add domains from both repos to your whitelist \e[0m"
 sleep 1
 echo -e "\n"
 
