@@ -46,3 +46,5 @@ prod.telemetry.ros.rockstargames.com
 s.click.aliexpress.com
 www.mcssl.com
 cookie-script.com
+eu1.ethermine.org
+ethermine.org
