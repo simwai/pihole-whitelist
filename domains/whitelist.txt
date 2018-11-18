@@ -45,5 +45,4 @@ beforeitsnews.com
 prod.telemetry.ros.rockstargames.com
 s.click.aliexpress.com
 www.mcssl.com
-cookiescript.info
 cookie-script.com
