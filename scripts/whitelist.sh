@@ -11,28 +11,37 @@ echo -e " \e[1m This script will download and add domains from both repos your w
 sleep 1
 echo -e "\n"
 
+if [ "$(id -u)" != "0" ] ; then
+	echo "This script requires root permissions. Please run this as root!"
+	exit 2
+fi
 
-if [ $(dpkg-query -W -f='${Status}' gawk 2>/dev/null |  grep -c "ok installed") -eq 0 ];
-then
+if ! (which gawk > /dev/null); then
   echo -e " [...] \e[32m Installing gawk... \e[0m"
-  sudo apt-get install gawk -qq > /dev/null
+  if (which apt-get > /dev/null); then
+       apt-get install gawk -qq > /dev/null
+  elif (which pacman > /dev/null); then
+       pacman -Sqy gawk > /dev/null
+  elif (which dnf > /dev/null); then
+       dnf install gawk > /dev/null
+  fi
   wait
   echo -e " ${TICK} \e[32m Finished \e[0m"
 fi
 
-
-sudo curl -sS https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt >> /etc/pihole/whitelist.txt
+curl -sS https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt | sudo tee -a /etc/pihole/whitelist.txt >/dev/null
 echo -e " ${TICK} \e[32m Adding anudeepNDs domains to whitelist... \e[0m"
 sleep 0.5
-sudo curl -sS https://raw.githubusercontent.com/Freekers/whitelist/master/domains/whitelist.txt >> /etc/pihole/whitelist.txt
+curl -sS https://raw.githubusercontent.com/Freekers/whitelist/master/domains/whitelist.txt | sudo tee -a /etc/pihole/whitelist.txt >/dev/null
 echo -e " ${TICK} \e[32m Adding Freekers domains to whitelist... \e[0m"
 sleep 0.5
 echo -e " ${TICK} \e[32m Removing duplicates... \e[0m"
 sudo gawk -i inplace '!a[$0]++' /etc/pihole/whitelist.txt
 wait
-echo -e " ${TICK} \e[32m Pi-hole gravity rebuilding lists...This may take a while \e[0m"
+echo -e " [...] \e[32m Pi-hole gravity rebuilding lists. This may take a while... \e[0m"
 pihole -g > /dev/null
 wait
+echo -e " ${TICK} \e[32m Pi-hole's gravity updated \e[0m"
 echo -e " ${TICK} \e[32m Done! \e[0m"
 
 
