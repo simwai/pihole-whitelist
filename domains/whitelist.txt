@@ -48,3 +48,4 @@ www.mcssl.com
 cookie-script.com
 eu1.ethermine.org
 ethermine.org
+js.braintreegateway.com
