@@ -51,3 +51,4 @@ ethermine.org
 js.braintreegateway.com
 api.coinbase.com
 cdns.eu1.gigya.com
+socialize.eu1.gigya.com
