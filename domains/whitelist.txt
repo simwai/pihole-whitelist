@@ -50,3 +50,4 @@ eu1.ethermine.org
 ethermine.org
 js.braintreegateway.com
 api.coinbase.com
+cdns.eu1.gigya.com
