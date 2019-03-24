@@ -55,3 +55,4 @@ socialize.eu1.gigya.com
 accounts.eu1.gigya.com
 shop.rewe-static.de
 gfwsl.geforce.com
+alcpu.com
