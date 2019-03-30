@@ -56,3 +56,4 @@ accounts.eu1.gigya.com
 shop.rewe-static.de
 gfwsl.geforce.com
 alcpu.com
+api.ethermine.org
