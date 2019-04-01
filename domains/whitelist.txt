@@ -57,3 +57,4 @@ shop.rewe-static.de
 gfwsl.geforce.com
 alcpu.com
 api.ethermine.org
+users.telenet.be
