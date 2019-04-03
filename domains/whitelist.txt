@@ -59,3 +59,4 @@ alcpu.com
 api.ethermine.org
 users.telenet.be
 coinmarketcap.com
+binance.com
