@@ -61,3 +61,7 @@ users.telenet.be
 coinmarketcap.com
 binance.com
 www.binance.com
+bittrex.com
+www.bittrex.com
+socket.bittrex.com
+international.bittrex.com
