@@ -60,3 +60,4 @@ api.ethermine.org
 users.telenet.be
 coinmarketcap.com
 binance.com
+www.binance.com
