@@ -1,11 +1,12 @@
 #!/bin/bash
-# This script will download and add domains from the rep to whitelist.txt file.
-# Project homepage: https://github.com/anudeepND/whitelist and https://github.com/Freekers/whitelist
+# This script will download and add domains from both repos to your whitelist
+# Project homepage: https://github.com/Freekers/whitelist
 # Licence: https://github.com/anudeepND/whitelist/blob/master/LICENSE
-# Created by Anudeep | Modified by Freekers
+# Created by Anudeep (Slight change by cminion) | Modified by Freekers
 #================================================================================
 TICK="[\e[32m ✔ \e[0m]"
-
+PIHOLE_LOCATION="/etc/pihole"
+GRAVITY_UPDATE_COMMAND="pihole updateGravity"
 
 echo -e " \e[1m This script will download and add domains from both repos to your whitelist \e[0m"
 sleep 1
@@ -16,31 +17,18 @@ if [ "$(id -u)" != "0" ] ; then
 	exit 2
 fi
 
-if ! (which gawk > /dev/null); then
-  echo -e " [...] \e[32m Installing gawk... \e[0m"
-  if (which apt-get > /dev/null); then
-       apt-get install gawk -qq > /dev/null
-  elif (which pacman > /dev/null); then
-       pacman -Sqy gawk > /dev/null
-  elif (which dnf > /dev/null); then
-       dnf install gawk > /dev/null
-  fi
-  wait
-  echo -e " ${TICK} \e[32m Finished \e[0m"
-fi
-
-curl -sS https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt | sudo tee -a /etc/pihole/whitelist.txt >/dev/null
-echo -e " ${TICK} \e[32m Adding anudeepNDs domains to whitelist... \e[0m"
-sleep 0.5
-curl -sS https://raw.githubusercontent.com/Freekers/whitelist/master/domains/whitelist.txt | sudo tee -a /etc/pihole/whitelist.txt >/dev/null
-echo -e " ${TICK} \e[32m Adding Freekers domains to whitelist... \e[0m"
-sleep 0.5
+curl -sS https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt | sudo tee -a "${PIHOLE_LOCATION}"/whitelist.txt >/dev/null
+echo -e " ${TICK} \e[32m Adding anudeepND's domains to whitelist... \e[0m"
+sleep 0.1
+curl -sS https://raw.githubusercontent.com/Freekers/whitelist/master/domains/whitelist.txt | sudo tee -a "${PIHOLE_LOCATION}"/whitelist.txt >/dev/null
+echo -e " ${TICK} \e[32m Adding Freekers' domains to whitelist... \e[0m"
+sleep 0.1
 echo -e " ${TICK} \e[32m Removing duplicates... \e[0m"
-sudo gawk -i inplace '!a[$0]++' /etc/pihole/whitelist.txt
-wait
+mv "${PIHOLE_LOCATION}"/whitelist.txt "${PIHOLE_LOCATION}"/whitelist.txt.old && cat "${PIHOLE_LOCATION}"/whitelist.txt.old | sort | uniq >> "${PIHOLE_LOCATION}"/whitelist.txt
+
 echo -e " [...] \e[32m Pi-hole gravity rebuilding lists. This may take a while... \e[0m"
-pihole -g > /dev/null
-wait
+${GRAVITY_UPDATE_COMMAND} > /dev/null
+ 
 echo -e " ${TICK} \e[32m Pi-hole's gravity updated \e[0m"
 echo -e " ${TICK} \e[32m Done! \e[0m"
 
