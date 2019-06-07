@@ -34,9 +34,9 @@ This file contain domains that are safe to whitelist i.e it does not contain any
 ### Installation and Usage
         
 ***For Pi-hole in Docker installations***  
-First, make sure to clone the repository into a location that is accessible by your Pi-hole Docker' container, i.e. do a `git clone https://github.com/Freekers/whitelist.git` in one of your volume mounts.  
-Next, make sure to make the script executable using `sudo chmod +x whitelist.sh`  
-Finally, setup a cronjob using `crontab -e` and add the following line:  
+- First, make sure to clone the repository into a location that is accessible by your Pi-hole Docker' container, i.e. do a `git clone https://github.com/Freekers/whitelist.git` in one of your volume mounts.  
+- Next, make sure to make the script executable using `sudo chmod +x whitelist.sh`  
+- Finally, setup a cronjob using `crontab -e` and add the following line:  
 `0 0 * * * docker exec -d pihole '/opt/whitelist/scripts/whitelist.sh'`  
 
 This will sync your whitelist with the one from the repository every day at midnight. Make sure to adjust the command to reflect your setup, i.e. change the container name and path to the script.  
@@ -49,10 +49,9 @@ sudo chmod +x whitelist.sh
 sudo ./whitelist.sh
 ```
 
-**Note: You don't have to clone the repo every time you want to update whitelist file. Navigate to `whitelist/scripts` and run the script again `sudo ./whitelist.sh`**
+Note: You don't have to clone the repo every time you want to update whitelist file. Navigate to `whitelist/scripts` and run the script again `sudo ./whitelist.sh`
 
-It's recommended to setup a cronjob to keep your whitelist in sync with the one from the repository. To do so, run `crontab -e` and add the following line:  
-`0 0 * * * '/opt/whitelist/scripts/whitelist.sh'`  
+It's recommended to setup a cronjob to keep your whitelist in sync with the one from the repository. To do so, run `crontab -e` and add the following line: `0 0 * * * '/opt/whitelist/scripts/whitelist.sh'`  
 This will sync your whitelist with the one from the repository every day at midnight. Make sure to adjust the path to where you cloned the script.  
   
 ### How do I determine an ad domain?
