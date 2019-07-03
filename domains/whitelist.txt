@@ -65,3 +65,4 @@ bittrex.com
 www.bittrex.com
 socket.bittrex.com
 international.bittrex.com
+lp.babbel.com
