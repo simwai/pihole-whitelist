@@ -66,3 +66,4 @@ www.bittrex.com
 socket.bittrex.com
 international.bittrex.com
 lp.babbel.com
+game.weixin.qq.com
