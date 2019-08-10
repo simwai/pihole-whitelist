@@ -68,3 +68,4 @@ international.bittrex.com
 lp.babbel.com
 game.weixin.qq.com
 www.travelzoo.com
+vanilla.futurecdn.net
