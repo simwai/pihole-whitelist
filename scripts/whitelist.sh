@@ -2,14 +2,13 @@
 # This script will download and add domains from both repos to your whitelist
 # Project homepage: https://github.com/Freekers/whitelist
 # Licence: https://github.com/anudeepND/whitelist/blob/master/LICENSE
-# Created by Anudeep (Slight change by cminion) | Modified by Freekers
+# Created by Anudeep (Slight change by cminion) | Modified by Freekers | Modified by simwai
 #================================================================================
 TICK="[\e[32m ✔ \e[0m]"
 PIHOLE_LOCATION="/etc/pihole"
 GRAVITY_UPDATE_COMMAND="pihole -w -q"
 
 echo -e " \e[1m This script will download and add domains from both repos to your whitelist \e[0m"
-sleep 1
 echo -e "\n"
 
 if [ "$(id -u)" != "0" ] ; then
@@ -19,10 +18,10 @@ fi
 
 curl -sS https://raw.githubusercontent.com/hl2guide/Filterlist-for-AdGuard-or-PiHole/master/filter_whitelist.txt | sudo tee -a "${PIHOLE_LOCATION}"/whitelist.txt >/dev/null
 echo -e " ${TICK} \e[32m Adding hl2guide's domains to whitelist... \e[0m"
-sleep 0.1
+
 curl -sS https://raw.githubusercontent.com/EnergizedProtection/unblock/master/basic/formats/domains.txt | sudo tee -a "${PIHOLE_LOCATION}"/whitelist.txt >/dev/null
 echo -e " ${TICK} \e[32m Adding EngerizedProtection's domains to whitelist... \e[0m"
-sleep 0.1
+
 echo -e " ${TICK} \e[32m Removing duplicates... \e[0m"
 mv "${PIHOLE_LOCATION}"/whitelist.txt "${PIHOLE_LOCATION}"/whitelist.txt.old && cat "${PIHOLE_LOCATION}"/whitelist.txt.old | sort | uniq >> "${PIHOLE_LOCATION}"/whitelist.txt
 
