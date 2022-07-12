@@ -17,10 +17,10 @@ if [ "$(id -u)" != "0" ] ; then
 	exit 2
 fi
 
-curl -sS https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt | sudo tee -a "${PIHOLE_LOCATION}"/whitelist.txt >/dev/null
+curl -sS https://raw.githubusercontent.com/hl2guide/Filterlist-for-AdGuard-or-PiHole/master/filter_whitelist.txt | sudo tee -a "${PIHOLE_LOCATION}"/whitelist.txt >/dev/null
 echo -e " ${TICK} \e[32m Adding anudeepND's domains to whitelist... \e[0m"
 sleep 0.1
-curl -sS https://raw.githubusercontent.com/Freekers/whitelist/master/domains/whitelist.txt | sudo tee -a "${PIHOLE_LOCATION}"/whitelist.txt >/dev/null
+curl -sS https://raw.githubusercontent.com/EnergizedProtection/unblock/master/basic/formats/domains.txt | sudo tee -a "${PIHOLE_LOCATION}"/whitelist.txt >/dev/null
 echo -e " ${TICK} \e[32m Adding Freekers' domains to whitelist... \e[0m"
 sleep 0.1
 echo -e " ${TICK} \e[32m Removing duplicates... \e[0m"
