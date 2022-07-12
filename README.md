@@ -34,7 +34,7 @@ This file contain domains that are safe to whitelist i.e it does not contain any
 ### Installation and Usage
         
 ***For Pi-hole in Docker installations***  
-- First, make sure to clone the repository into a location that is accessible by your Pi-hole Docker' container, i.e. do a `git clone https://github.com/Freekers/whitelist.git` in one of your volume mounts.  
+- First, make sure to clone the repository into a location that is accessible by your Pi-hole Docker' container, i.e. do a `git clone https://github.com/simwai/whitelist.git` in one of your volume mounts.  
 - Next, make sure to make the script executable using `sudo chmod +x whitelist.sh`  
 - Finally, setup a cronjob using `crontab -e` and add the following line:  
 `0 0 * * * docker exec -d pihole '/opt/whitelist/scripts/whitelist.sh'`  
@@ -59,34 +59,22 @@ This will sync your whitelist with the one from the repository every day at midn
 ***Adam:ONE Assistant (Previously known as DNSthingy***
          
 <a href="https://chrome.google.com/webstore/detail/adamone-assistant/fdmpekabnlekabjlimjkfmdjajnddgpc">This browser extension</a> will list all of the domains that are queried when a web page is loaded. You can often look at the list of domains and cherry pick the ones that appear to be ad-serving domains.     
-        
-<p align="center">
-  <img width="600" height="500" src="https://raw.githubusercontent.com/anudeepND/blacklist/master/images/img1.jpeg">
-</p>
       
 ***Using inbuilt Developer tool***     
           
 For Chrome ctrl+shift+I will land you in Developer tools menu.
-      
-<p align="center">
-  <img width="450" height="600" src="https://raw.githubusercontent.com/anudeepND/whitelist/master/images/img2.jpeg">
-</p>      
-          
+
 ***Using an Android app*** 
      
 [Net Guard](https://play.google.com/store/apps/details?id=eu.faircode.netguard) is an Android app that can be used to monitor any specific apps, works on unrooted devices too.   
-        
-<p align="center">
-  <img width="500" height="400" src="https://raw.githubusercontent.com/anudeepND/whitelist/master/images/img3.jpeg">
-</p>
-             
+
 ***
    
 ### Licence
 ```
 MIT License
 
-Copyright (c) 2019 Anudeep ND <anudeep@protonmail.com>
+Copyright (c) 2019 simwai <SimonWaiblinger@live.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
